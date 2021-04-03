@@ -3,14 +3,19 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { VueLoaderPlugin } = require('vue-loader');
 module.exports = {
     mode:'development',
-    entry:'./web/src/index.js',
+    entry:'./src/index.js',
     output:{
         filename:'bundle.js',
-        path:path.resolve(__dirname+'/web/','dist')//构建一个绝对路径
+        path:path.resolve(__dirname,'dist')//构建一个绝对路径
     },
     plugins:[
         new VueLoaderPlugin(),
-        new HtmlWebpackPlugin()
+        new HtmlWebpackPlugin({
+            filename:'index.html',//生成的文件夹名
+            template:'./public/index.html',//生成HTML文件的模板
+            favicon:'./public/book.ico'
+
+        })
     ],
     module:{
         rules:[
@@ -19,7 +24,7 @@ module.exports = {
                 use:['style-loader','css-loader']
             },
             {
-                test:/\.(png|svg|jpg|jpeg|gif)$/,
+                test:/\.(png|svg|jpg|jpeg|gif|ico)$/,
                 type:'asset/resource'//使用内置Asset modules
             },
             {

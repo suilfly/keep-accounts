@@ -4,7 +4,7 @@ import Board from '../view/Board.vue';
 Vue.use(VueRouter);/* Vue.use?? */
 const route = [
     {
-        path:'/h',
+        path:'/',
         name:'board',
         component:Board
     }

@@ -1,23 +1,35 @@
 <template>
   <div id="app">
-      {{msg}}
+    <nav-bar/>
     <router-view></router-view>
   </div>
 </template>
 
 <script>
+import NavBar from './component/NavBar.vue';
 export default {
+  components: { NavBar },
   data() {
     return {
-      msg: "你好啊",
+     
     };
   },
+  
 };
 </script>
 
 <style>
 #app{
-    width: 300px;
-    height: 500px;
+    width: inherit;
+    height: 600px;
+}
+body,html,ul,a{
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+}
+html{
+  font-size: 16px;
 }
 </style>
